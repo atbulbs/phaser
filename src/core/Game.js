@@ -48,7 +48,11 @@ if (typeof PLUGIN_FBINSTANT)
  * You should generally avoid accessing any of the systems created by Game, and instead use those
  * made available to you via the Phaser.Scene Systems class instead.
  *
- * Phaser.Game 实例是整个Phaser game的主控制器, 它负责处理启动进程, 解析配置的值, 创建渲染器, 建立全部的Phaser系统
+ * Phaser.Game 实例是整个Phaser game的主控制器, 它负责处理启动进程, 解析配置对象的值, 创建渲染器, 建立全部的Phaser系统,
+ * 比如声音和输入. 一旦它完成, 将启动场景管理器并开始主game的轮询.
+ * 
+ * 你一般需要避免访问Game创建的任何系统, 取而代之的可以通过Phaser.Scene系统类访问.
+ * 
  * @class Game
  * @memberof Phaser
  * @constructor
@@ -70,6 +74,10 @@ var Game = new Class({
          * The parsed Game Configuration object.
          *
          * The values stored within this object are read-only and should not be changed at run-time.
+         * 
+         * 解析配置对象
+         * 
+         * 找个对象里保存的值是只读的而且在运行时不能被改变
          *
          * @name Phaser.Game#config
          * @type {Phaser.Core.Config}
@@ -80,6 +88,8 @@ var Game = new Class({
 
         /**
          * A reference to either the Canvas or WebGL Renderer that this Game is using.
+         * 
+         * 一个指向该游戏使用的Canvas或者WebGL渲染器的引用
          *
          * @name Phaser.Game#renderer
          * @type {(Phaser.Renderer.Canvas.CanvasRenderer|Phaser.Renderer.WebGL.WebGLRenderer)}
