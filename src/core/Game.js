@@ -118,6 +118,9 @@ var Game = new Class({
          * A reference to the HTML Canvas Element that Phaser uses to render the game.
          * This is created automatically by Phaser unless you provide a `canvas` property
          * in your Game Config.
+         * 
+         * 一个指向Phaser用来渲染game的canvas元素的引用
+         * 它会被Phaser自动创建除非你在Game Config里面提供canvas属性
          *
          * @name Phaser.Game#canvas
          * @type {HTMLCanvasElement}
@@ -131,7 +134,12 @@ var Game = new Class({
          * If the game is running under WebGL it will be a WebGL Rendering Context.
          * This context is created automatically by Phaser unless you provide a `context` property
          * in your Game Config.
-         *
+         * 
+         * 一个指向这个属于正在被渲染的game的canvas元素的渲染上下文的引用
+         * 如果game在canvas下运行, 它将是一个2d Canvas渲染上下文
+         * 如果game在WebGL下运行, 它将是一个WebGL渲染上下文
+         * 它会被Phaser自动创建除非你在Game Config里面提供context属性
+         * 
          * @name Phaser.Game#context
          * @type {(CanvasRenderingContext2D|WebGLRenderingContext)}
          * @since 3.0.0
@@ -141,6 +149,8 @@ var Game = new Class({
         /**
          * A flag indicating when this Game instance has finished its boot process.
          *
+         * 一个标记位表明game实例已结束它的启动进程
+         * 
          * @name Phaser.Game#isBooted
          * @type {boolean}
          * @readonly
