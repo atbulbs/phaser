@@ -48,7 +48,7 @@ if (typeof PLUGIN_FBINSTANT)
  * You should generally avoid accessing any of the systems created by Game, and instead use those
  * made available to you via the Phaser.Scene Systems class instead.
  *
- * Phaser.Game 实例是整个Phaser game的主控制器
+ * Phaser.Game 实例是整个Phaser game的主控制器, 它负责处理启动进程, 解析配置的值, 创建渲染器, 建立全部的Phaser系统
  * @class Game
  * @memberof Phaser
  * @constructor
