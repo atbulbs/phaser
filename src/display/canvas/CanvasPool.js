@@ -8,10 +8,12 @@ var CONST = require('../../const');
 var Smoothing = require('./Smoothing');
 
 // The pool into which the canvas elements are placed.
+
 // 放置画布的池子
 var pool = [];
 
-//  Automatically apply smoothing(false) to created Canvas elements
+// Automatically apply smoothing(false) to created Canvas elements
+
 // 自动平滑的创建canvas
 var _disableContextSmoothing = false;
 
@@ -21,10 +23,14 @@ var _disableContextSmoothing = false;
  * which is useless for some of the Phaser pipelines / renderer.
  * 
  * 画布池是一个全局的静态对象, 允许Phaser回收和放入2D上下文的画布元素
- * 
+ * 它不能放入WebGL上下文, 因为一旦上下文选项被设置就不能再被修改了
+ * 如果被修改了, 对于某些Phaser的管线和渲染器就无效了
  *
  * This singleton is instantiated as soon as Phaser loads, before a Phaser.Game instance has even been created.
  * Which means all instances of Phaser Games on the same page can share the one single pool.
+ * 
+ * 一旦Phaser加载, 画布池在Phase.Game实例被创建前就是一个单例了
+ * 意味着在同一个页面上的所有的Phaser Games可以共享这个的单例的池子
  *
  * @namespace Phaser.Display.Canvas.CanvasPool
  * @since 3.0.0
@@ -33,11 +39,15 @@ var CanvasPool = function ()
 {
     /**
      * Creates a new Canvas DOM element, or pulls one from the pool if free.
-     *
+     * 
+     * 创建一个新的画布元素, 或者从画布池里取一个
+     * 
      * @function Phaser.Display.Canvas.CanvasPool.create
      * @since 3.0.0
      *
-     * @param {*} parent - The parent of the Canvas object.
+     * @param {*} parent - The parent of the Canvas object. 
+     * 画布元素的父级
+     * 
      * @param {integer} [width=1] - The width of the Canvas.
      * @param {integer} [height=1] - The height of the Canvas.
      * @param {integer} [canvasType=Phaser.CANVAS] - The type of the Canvas. Either `Phaser.CANVAS` or `Phaser.WEBGL`.
