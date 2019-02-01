@@ -8,15 +8,20 @@ var CONST = require('../../const');
 var Smoothing = require('./Smoothing');
 
 // The pool into which the canvas elements are placed.
+// 放置画布的池子
 var pool = [];
 
 //  Automatically apply smoothing(false) to created Canvas elements
+// 自动平滑的创建canvas
 var _disableContextSmoothing = false;
 
 /**
  * The CanvasPool is a global static object, that allows Phaser to recycle and pool 2D Context Canvas DOM elements.
  * It does not pool WebGL Contexts, because once the context options are set they cannot be modified again, 
  * which is useless for some of the Phaser pipelines / renderer.
+ * 
+ * 画布池是一个全局的静态对象, 允许Phaser回收和放入2D上下文的画布元素
+ * 
  *
  * This singleton is instantiated as soon as Phaser loads, before a Phaser.Game instance has even been created.
  * Which means all instances of Phaser Games on the same page can share the one single pool.
